@@ -74,7 +74,7 @@ export default function QuickActions({
           >
             <action.icon className="text-white" size={28} />
           </div>
-          <h3 className="font-bold text-white mb-2 text-xl tracking-tight" style={{ fontFamily: 'var(--font-exo2)' }}>
+          <h3 className="font-bold text-white mb-2 text-xl tracking-tight" style={{ fontFamily: 'var(--font-rajdhani)' }}>
             {action.label}
           </h3>
           <p className="text-sm text-gray-300 font-medium">

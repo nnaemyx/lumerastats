@@ -18,7 +18,7 @@ export default function BalanceCard() {
   const formattedBalance = formatTokenAmount(balance);
 
   return (
-    <div className="bg-gradient-to-br from-cyan-600 via-blue-600 to-teal-600 rounded-3xl p-10 text-white shadow-2xl glow-primary border-2 border-cyan-400/40 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600 rounded-3xl p-10 text-white shadow-2xl glow-primary border-2 border-orange-400/40 relative overflow-hidden">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_50%)]" />
@@ -32,8 +32,8 @@ export default function BalanceCard() {
               <Coins size={36} className="text-white" />
             </div>
             <div>
-              <p className="text-white/90 text-sm font-semibold uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-exo2)' }}>Total Balance</p>
-              <h2 className="text-6xl font-bold mt-1 tracking-tight text-white" style={{ fontFamily: 'var(--font-exo2)' }}>
+              <p className="text-white/90 text-sm font-semibold uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-rajdhani)' }}>Total Balance</p>
+              <h2 className="text-6xl font-bold mt-1 tracking-tight text-white" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                 {isConnected ? formattedBalance : "0.000000"}
               </h2>
             </div>
@@ -52,8 +52,8 @@ export default function BalanceCard() {
           )}
         </div>
         <div className="flex items-center justify-between pt-6 border-t border-white/30">
-          <span className="text-white/90 text-sm font-semibold uppercase tracking-widest" style={{ fontFamily: 'var(--font-exo2)' }}>LUME</span>
-          <span className="text-sm bg-white/20 backdrop-blur-md px-5 py-2 rounded-full font-semibold border-2 border-white/30 text-white shadow-lg" style={{ fontFamily: 'var(--font-exo2)' }}>
+          <span className="text-white/90 text-sm font-semibold uppercase tracking-widest" style={{ fontFamily: 'var(--font-rajdhani)' }}>LUME</span>
+          <span className="text-sm bg-white/20 backdrop-blur-md px-5 py-2 rounded-full font-semibold border-2 border-white/30 text-white shadow-lg" style={{ fontFamily: 'var(--font-rajdhani)' }}>
             Lumera Mainnet
           </span>
         </div>

@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Exo_2, Nunito, Geist_Mono } from "next/font/google";
+import { Rajdhani, Source_Sans_3, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "@/contexts/WalletContext";
 
-const exo2 = Exo_2({
-  variable: "--font-exo2",
+const rajdhani = Rajdhani({
+  variable: "--font-rajdhani",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const nunito = Nunito({
-  variable: "--font-nunito",
+const sourceSans3 = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
   display: "swap",
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -23,9 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aurora - Advanced DeFi Platform",
+  title: "Zenith - Peak DeFi Performance",
   description:
-    "An advanced decentralized application for staking, governance, and token management on the Cosmos ecosystem. Experience the dawn of DeFi with Aurora.",
+    "Reach the peak of decentralized finance. A powerful platform for staking, governance, and token management on the Cosmos ecosystem. Experience the zenith of DeFi.",
 };
 
 export default function RootLayout({
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${exo2.variable} ${nunito.variable} ${geistMono.variable} antialiased`}
+        className={`${rajdhani.variable} ${sourceSans3.variable} ${geistMono.variable} antialiased`}
       >
         <WalletProvider>{children}</WalletProvider>
       </body>

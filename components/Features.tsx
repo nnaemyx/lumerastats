@@ -27,17 +27,17 @@ export default function Features() {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-7 border-2 border-cyan-500/20 shadow-xl backdrop-blur-md">
-      <h3 className="text-2xl font-bold text-white mb-6 tracking-tight" style={{ fontFamily: 'var(--font-exo2)' }}>
-        Aurora Features
+    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-7 border-2 border-orange-500/20 shadow-xl backdrop-blur-md">
+      <h3 className="text-2xl font-bold text-white mb-6 tracking-tight" style={{ fontFamily: 'var(--font-rajdhani)' }}>
+        Zenith Features
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         {features.map((feature, index) => {
           const colors = [
-            "from-cyan-500 to-cyan-600",
-            "from-blue-500 to-blue-600",
-            "from-teal-500 to-teal-600",
-            "from-cyan-400 to-blue-500",
+            "from-orange-500 to-orange-600",
+            "from-amber-500 to-amber-600",
+            "from-yellow-500 to-yellow-600",
+            "from-orange-400 to-amber-500",
           ];
           return (
             <div key={index} className="flex items-start gap-4 group hover:bg-white/5 p-3 rounded-2xl transition-all duration-300">
@@ -45,7 +45,7 @@ export default function Features() {
                 <feature.icon className="text-white" size={24} />
               </div>
               <div>
-                <h4 className="font-bold text-white text-base mb-1" style={{ fontFamily: 'var(--font-exo2)' }}>
+                <h4 className="font-bold text-white text-base mb-1" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                   {feature.title}
                 </h4>
                 <p className="text-sm text-gray-300 font-medium leading-relaxed">

@@ -25,15 +25,15 @@ export default function Home() {
     <div className="min-h-screen bg-[#0a0a0f] relative overflow-hidden">
       {/* Animated background gradient */}
       <div className="fixed inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.15),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.10),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(14,165,233,0.08),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(249,115,22,0.15),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(251,146,60,0.10),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.08),transparent_50%)] pointer-events-none" />
       {/* Animated mesh gradient */}
-      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(6,182,212,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
-      {/* Wave pattern */}
+      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(249,115,22,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
+      {/* Dot pattern */}
       <div className="fixed inset-0 opacity-5" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 30 50 50 T100 50' stroke='%2306b6d4' fill='none'/%3E%3C/svg%3E")`,
-        backgroundSize: '200px 200px'
+        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(249,115,22,0.1) 1px, transparent 0)`,
+        backgroundSize: '30px 30px'
       }}></div>
       
       <Header />
@@ -60,59 +60,59 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto"
           >
-            {/* HERO SECTION - AURORA DESIGN */}
+            {/* HERO SECTION - ZENITH DESIGN */}
             <div className="mb-20 mt-8">
               <div className="max-w-7xl mx-auto">
-                {/* Card-Based Asymmetric Layout */}
-                <div className="grid lg:grid-cols-12 gap-6 mb-16">
-                  {/* Main Hero Card - Left Side */}
+                {/* Centered Floating Cards Layout */}
+                <div className="relative min-h-[600px] flex items-center justify-center mb-16">
+                  {/* Central Hero Card */}
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="lg:col-span-7"
+                    className="relative z-10 max-w-2xl mx-auto"
                   >
-                    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-10 border-2 border-cyan-500/30 shadow-2xl backdrop-blur-md relative overflow-hidden">
+                    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-12 border-2 border-orange-500/30 shadow-2xl backdrop-blur-md relative overflow-hidden">
                       {/* Background pattern */}
                       <div className="absolute inset-0 opacity-10">
                         <div className="absolute inset-0" style={{
-                          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(6,182,212,0.2) 1px, transparent 0)`,
-                          backgroundSize: '40px 40px'
+                          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(249,115,22,0.2) 1px, transparent 0)`,
+                          backgroundSize: '50px 50px'
                         }}></div>
                       </div>
                       
-                      <div className="relative z-10 space-y-6">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full">
-                          <Sparkles className="text-cyan-400" size={16} />
-                          <span className="text-cyan-300 text-xs font-semibold tracking-wider" style={{ fontFamily: 'var(--font-exo2)' }}>
-                            Advanced DeFi Platform
+                      <div className="relative z-10 text-center space-y-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/10 border border-orange-500/30 rounded-full">
+                          <Sparkles className="text-orange-400" size={16} />
+                          <span className="text-orange-300 text-xs font-semibold tracking-wider" style={{ fontFamily: 'var(--font-rajdhani)' }}>
+                            Peak DeFi Performance
                           </span>
                         </div>
 
                         <h1 
-                          className="text-5xl md:text-7xl font-bold text-white leading-tight"
-                          style={{ fontFamily: 'var(--font-exo2)' }}
+                          className="text-6xl md:text-8xl font-bold text-white leading-tight"
+                          style={{ fontFamily: 'var(--font-rajdhani)' }}
                         >
-                          <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-teal-400 bg-clip-text text-transparent">
-                            AURORA
+                          <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
+                            ZENITH
                           </span>
                         </h1>
                         
-                        <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
-                          Experience the dawn of decentralized finance. A powerful platform for staking, governance, and token management on the Cosmos ecosystem.
+                        <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl mx-auto">
+                          Reach the peak of decentralized finance. A powerful platform for staking, governance, and token management on the Cosmos ecosystem.
                         </p>
 
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3 }}
-                          className="flex flex-wrap items-center gap-6"
+                          className="flex flex-wrap items-center justify-center gap-6"
                         >
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary"
-                            style={{ fontFamily: 'var(--font-exo2)' }}
+                            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-600 hover:from-orange-700 hover:to-amber-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary"
+                            style={{ fontFamily: 'var(--font-rajdhani)' }}
                           >
                             <AlertCircle size={20} />
                             <span>Connect Wallet</span>
@@ -120,12 +120,12 @@ export default function Home() {
                           </motion.button>
                           
                           <div className="flex items-center gap-4 text-sm">
-                            <div className="flex items-center gap-2 text-cyan-300">
-                              <Zap className="text-cyan-400" size={18} />
-                              <span>Lightning Fast</span>
+                            <div className="flex items-center gap-2 text-orange-300">
+                              <Zap className="text-orange-400" size={18} />
+                              <span>Ultra Fast</span>
                             </div>
-                            <div className="flex items-center gap-2 text-blue-300">
-                              <Shield className="text-blue-400" size={18} />
+                            <div className="flex items-center gap-2 text-amber-300">
+                              <Shield className="text-amber-400" size={18} />
                               <span>Secure</span>
                             </div>
                           </div>
@@ -134,107 +134,120 @@ export default function Home() {
                     </div>
                   </motion.div>
 
-                  {/* Side Cards - Right Side */}
+                  {/* Floating Cards Around Center */}
+                  {/* Top Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                  >
+                    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-orange-500/20 hover:border-orange-400/40 transition-all duration-300 hover:scale-105 group w-64">
+                      <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-3 shadow-lg glow-primary group-hover:rotate-6 transition-transform duration-300 mx-auto">
+                        <Shield className="text-white" size={20} />
+                      </div>
+                      <h3 className="text-base font-bold text-white mb-1 text-center" style={{ fontFamily: 'var(--font-rajdhani)' }}>
+                        Security
+                      </h3>
+                      <p className="text-xs text-gray-400 text-center">
+                        Enterprise-grade
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Right Card */}
                   <motion.div
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="lg:col-span-5 space-y-6"
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2"
                   >
-                    {/* Feature Card 1 */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 }}
-                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group"
-                    >
-                      <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl flex items-center justify-center mb-4 shadow-lg glow-primary group-hover:rotate-6 transition-transform duration-300">
-                        <Shield className="text-white" size={24} />
+                    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-amber-500/20 hover:border-amber-400/40 transition-all duration-300 hover:scale-105 group w-64">
+                      <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-3 shadow-lg glow-primary group-hover:rotate-6 transition-transform duration-300 mx-auto">
+                        <TrendingUp className="text-white" size={20} />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-exo2)' }}>
-                        Enterprise Security
+                      <h3 className="text-base font-bold text-white mb-1 text-center" style={{ fontFamily: 'var(--font-rajdhani)' }}>
+                        Staking
                       </h3>
-                      <p className="text-sm text-gray-400">
-                        Multi-layer protection
-                      </p>
-                    </motion.div>
-
-                    {/* Feature Card 2 */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:scale-105 group"
-                    >
-                      <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg glow-primary group-hover:rotate-6 transition-transform duration-300">
-                        <TrendingUp className="text-white" size={24} />
-                      </div>
-                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-exo2)' }}>
-                        Smart Staking
-                      </h3>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-xs text-gray-400 text-center">
                         Optimized yields
                       </p>
-                    </motion.div>
+                    </div>
+                  </motion.div>
 
-                    {/* Visual Card */}
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.6 }}
-                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-8 border-2 border-teal-500/30 flex items-center justify-center h-[200px] overflow-hidden relative"
-                    >
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="absolute inset-0" style={{
-                          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(6,182,212,0.1) 10px, rgba(6,182,212,0.1) 20px)`,
-                        }}></div>
+                  {/* Bottom Card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2"
+                  >
+                    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-yellow-500/20 hover:border-yellow-400/40 transition-all duration-300 hover:scale-105 group w-64">
+                      <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center mb-3 shadow-lg glow-primary group-hover:rotate-6 transition-transform duration-300 mx-auto">
+                        <Globe className="text-white" size={20} />
                       </div>
+                      <h3 className="text-base font-bold text-white mb-1 text-center" style={{ fontFamily: 'var(--font-rajdhani)' }}>
+                        Cross-Chain
+                      </h3>
+                      <p className="text-xs text-gray-400 text-center">
+                        IBC compatible
+                      </p>
+                    </div>
+                  </motion.div>
+
+                  {/* Left Card */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8, duration: 0.8 }}
+                    className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2"
+                  >
+                    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-8 border-2 border-orange-500/30 flex items-center justify-center w-32 h-32 overflow-hidden relative">
                       <motion.div
                         animate={{ 
                           rotate: [0, 360],
                           scale: [1, 1.1, 1]
                         }}
                         transition={{ 
-                          rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                          scale: { duration: 4, repeat: Infinity }
+                          rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                          scale: { duration: 3, repeat: Infinity }
                         }}
-                        className="w-32 h-32 bg-gradient-to-br from-cyan-600 via-blue-600 to-teal-600 rounded-2xl flex items-center justify-center shadow-2xl glow-primary border-4 border-cyan-400/50 relative z-10"
+                        className="w-24 h-24 bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600 rounded-xl flex items-center justify-center shadow-2xl glow-primary border-4 border-orange-400/50 relative z-10"
                       >
-                        <span className="text-white font-bold text-6xl" style={{ fontFamily: 'var(--font-exo2)' }}>A</span>
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div>
-                        <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-blue-400 rounded-full animate-pulse delay-300"></div>
+                        <span className="text-white font-bold text-4xl" style={{ fontFamily: 'var(--font-rajdhani)' }}>Z</span>
+                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-400 rounded-full animate-pulse"></div>
+                        <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-amber-400 rounded-full animate-pulse delay-300"></div>
                       </motion.div>
-                    </motion.div>
+                    </div>
                   </motion.div>
                 </div>
 
-                {/* Feature Grid - 4 Columns */}
+                {/* Feature Grid - 3 Columns */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
-                  className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+                  transition={{ delay: 0.9 }}
+                  className="grid md:grid-cols-3 gap-6 mb-16"
                 >
                   {[
-                    { icon: Shield, title: "Security", desc: "Enterprise-grade", gradient: "from-cyan-500 to-cyan-600", delay: 0.8 },
-                    { icon: TrendingUp, title: "Staking", desc: "Maximize returns", gradient: "from-blue-500 to-blue-600", delay: 0.9 },
-                    { icon: Globe, title: "Cross-Chain", desc: "IBC compatible", gradient: "from-teal-500 to-teal-600", delay: 1.0 },
-                    { icon: Zap, title: "Performance", desc: "Lightning fast", gradient: "from-cyan-400 to-blue-500", delay: 1.1 },
+                    { icon: Shield, title: "Advanced Security", desc: "Multi-layer protection", gradient: "from-orange-500 to-orange-600", delay: 1.0 },
+                    { icon: TrendingUp, title: "Smart Staking", desc: "Maximize returns", gradient: "from-amber-500 to-amber-600", delay: 1.1 },
+                    { icon: Globe, title: "Cross-Chain", desc: "IBC compatible", gradient: "from-yellow-500 to-yellow-600", delay: 1.2 },
                   ].map((feature, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: feature.delay }}
-                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:scale-105 group text-center"
+                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-8 border-2 border-orange-500/20 hover:border-orange-400/40 transition-all duration-300 hover:scale-105 group text-center"
                     >
-                      <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg glow-primary group-hover:rotate-12 transition-transform duration-300`}>
-                        <feature.icon className="text-white" size={24} />
+                      <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg glow-primary group-hover:rotate-12 transition-transform duration-300`}>
+                        <feature.icon className="text-white" size={28} />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-exo2)' }}>
+                      <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-gray-400 leading-relaxed">
                         {feature.desc}
                       </p>
                     </motion.div>
@@ -250,11 +263,11 @@ export default function Home() {
             </div>
 
             {/* GETTING STARTED */}
-            <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-10 border-2 border-cyan-500/20 shadow-2xl backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-10 border-2 border-orange-500/20 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold text-white mb-8 tracking-tight" style={{ fontFamily: 'var(--font-exo2)' }}>
+                <h3 className="text-3xl font-bold text-white mb-8 tracking-tight" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                   Getting Started
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -266,13 +279,13 @@ export default function Home() {
                       transition={{ delay: 0.1 * i }}
                       className="flex items-start gap-4 group p-4 rounded-xl hover:bg-white/5 transition-colors"
                     >
-                      <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 text-white flex items-center justify-center text-base font-bold shadow-lg glow-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0" style={{ fontFamily: 'var(--font-exo2)' }}>
+                      <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 text-white flex items-center justify-center text-base font-bold shadow-lg glow-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                         {i + 1}
                       </span>
                       <span className="leading-relaxed text-base font-normal pt-3 text-gray-300 group-hover:text-white transition-colors">
                         {i === 0 ? (
                           <>
-                            Install <a href="https://www.keplr.app/" target="_blank" rel="noopener noreferrer" className="underline text-cyan-400 font-semibold hover:text-blue-400 transition-colors">Keplr Wallet</a> browser extension
+                            Install <a href="https://www.keplr.app/" target="_blank" rel="noopener noreferrer" className="underline text-orange-400 font-semibold hover:text-amber-400 transition-colors">Keplr Wallet</a> browser extension
                           </>
                         ) : step}
                       </span>
