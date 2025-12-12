@@ -27,26 +27,34 @@ export default function Features() {
   ];
 
   return (
-    <div className="bg-[#111118] rounded-2xl p-6 border-2 border-[#1e1e2e] shadow-xl backdrop-blur-sm">
-      <h3 className="text-xl font-bold text-white mb-5 tracking-tight">
-        Nexus Features
+    <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-7 border-2 border-orange-500/20 shadow-xl backdrop-blur-md">
+      <h3 className="text-2xl font-black text-white mb-6 tracking-tight" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+        Apex Features
       </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {features.map((feature, index) => (
-          <div key={index} className="flex items-start gap-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 via-pink-500 to-rose-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg glow-primary">
-              <feature.icon className="text-white" size={22} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {features.map((feature, index) => {
+          const colors = [
+            "from-orange-500 to-orange-600",
+            "from-amber-500 to-amber-600",
+            "from-orange-600 to-red-500",
+            "from-amber-400 to-orange-500",
+          ];
+          return (
+            <div key={index} className="flex items-start gap-4 group hover:bg-white/5 p-3 rounded-2xl transition-all duration-300">
+              <div className={`w-14 h-14 bg-gradient-to-br ${colors[index]} rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg glow-primary group-hover:scale-110 transition-transform duration-300`}>
+                <feature.icon className="text-white" size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-white text-base mb-1" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
+                  {feature.title}
+                </h4>
+                <p className="text-sm text-gray-300 font-medium leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-white text-sm">
-                {feature.title}
-              </h4>
-              <p className="text-xs text-gray-400 mt-1 font-medium">
-                {feature.description}
-              </p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

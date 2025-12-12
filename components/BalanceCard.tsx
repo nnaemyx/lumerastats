@@ -18,21 +18,22 @@ export default function BalanceCard() {
   const formattedBalance = formatTokenAmount(balance);
 
   return (
-    <div className="bg-gradient-to-br from-[#00ff88] via-[#00d4ff] to-[#00b8e6] rounded-3xl p-8 text-[#0a0a0f] shadow-2xl glow-primary border border-[#00ff88]/30 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-orange-600 via-amber-600 to-orange-700 rounded-3xl p-10 text-white shadow-2xl glow-primary border-2 border-orange-400/40 relative overflow-hidden">
       {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(0,0,0,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.1),transparent_50%)]" />
       </div>
       
       <div className="relative z-10">
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex items-center gap-4">
-            <div className="w-16 h-16 bg-[#0a0a0f]/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg border border-[#0a0a0f]/30">
-              <Coins size={32} className="text-[#0a0a0f]" />
+        <div className="flex items-start justify-between mb-8">
+          <div className="flex items-center gap-5">
+            <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center shadow-xl border-2 border-white/30">
+              <Coins size={36} className="text-white" />
             </div>
             <div>
-              <p className="text-[#0a0a0f]/80 text-sm font-semibold uppercase tracking-wider mb-1">Total Balance</p>
-              <h2 className="text-5xl font-bold mt-1 tracking-tight text-[#0a0a0f]">
+              <p className="text-white/90 text-sm font-semibold uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-space-grotesk)' }}>Total Balance</p>
+              <h2 className="text-6xl font-black mt-1 tracking-tight text-white" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
                 {isConnected ? formattedBalance : "0.000000"}
               </h2>
             </div>
@@ -41,18 +42,18 @@ export default function BalanceCard() {
             <button
               onClick={handleRefresh}
               disabled={isRefreshing}
-              className="p-3 hover:bg-[#0a0a0f]/20 rounded-xl transition-all duration-200 disabled:opacity-50 hover:scale-110 active:scale-95 backdrop-blur-sm border border-[#0a0a0f]/30"
+              className="p-4 hover:bg-white/20 rounded-2xl transition-all duration-200 disabled:opacity-50 hover:scale-110 active:scale-95 backdrop-blur-md border-2 border-white/30 shadow-lg"
             >
               <RefreshCw
-                size={24}
-                className={isRefreshing ? "animate-spin text-[#0a0a0f]" : "text-[#0a0a0f]"}
+                size={26}
+                className={isRefreshing ? "animate-spin text-white" : "text-white"}
               />
             </button>
           )}
         </div>
-        <div className="flex items-center justify-between pt-5 border-t border-[#0a0a0f]/30">
-          <span className="text-[#0a0a0f]/80 text-sm font-semibold uppercase tracking-wider">LUME</span>
-          <span className="text-xs bg-[#0a0a0f]/20 backdrop-blur-sm px-4 py-1.5 rounded-full font-semibold border border-[#0a0a0f]/30 text-[#0a0a0f]">
+        <div className="flex items-center justify-between pt-6 border-t border-white/30">
+          <span className="text-white/90 text-sm font-bold uppercase tracking-widest" style={{ fontFamily: 'var(--font-space-grotesk)' }}>LUME</span>
+          <span className="text-sm bg-white/20 backdrop-blur-md px-5 py-2 rounded-full font-bold border-2 border-white/30 text-white shadow-lg" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
             Lumera Mainnet
           </span>
         </div>
