@@ -25,14 +25,15 @@ export default function Home() {
     <div className="min-h-screen bg-[#0a0a0f] relative overflow-hidden">
       {/* Animated background gradient */}
       <div className="fixed inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(239,68,68,0.15),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(248,113,113,0.10),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(251,113,133,0.08),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.15),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(167,139,250,0.10),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(99,102,241,0.08),transparent_50%)] pointer-events-none" />
       {/* Animated mesh gradient */}
-      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(239,68,68,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
-      {/* Diagonal lines pattern */}
+      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(139,92,246,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
+      {/* Grid pattern */}
       <div className="fixed inset-0 opacity-5" style={{
-        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(239,68,68,0.1) 10px, rgba(239,68,68,0.1) 20px)`,
+        backgroundImage: `linear-gradient(rgba(139,92,246,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.1) 1px, transparent 1px)`,
+        backgroundSize: '50px 50px'
       }}></div>
       
       <Header />
@@ -59,170 +60,168 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-4xl mx-auto"
           >
-            {/* HERO SECTION - ECLIPSE DESIGN */}
-            <div className="mb-20 mt-6">
-              <div className="max-w-6xl mx-auto">
-                {/* Vertical Stacked Hero */}
-                <div className="text-center mb-16">
-                  {/* Large Logo at Top */}
+            {/* HERO SECTION - NOVA DESIGN */}
+            <div className="mb-20 mt-8">
+              <div className="max-w-7xl mx-auto">
+                {/* Split-Screen Hero Layout */}
+                <div className="grid lg:grid-cols-2 gap-8 items-center mb-16">
+                  {/* Left Side - Content */}
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, type: "spring" }}
-                    className="mb-10"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="space-y-8"
                   >
-                    <div className="inline-flex items-center justify-center w-40 h-40 md:w-48 md:h-48 bg-gradient-to-br from-red-600 via-rose-600 to-pink-600 rounded-full shadow-2xl glow-primary border-4 border-red-400/50 relative">
-                      <span className="text-white font-normal text-8xl md:text-9xl tracking-tight" style={{ fontFamily: 'var(--font-bebas)' }}>E</span>
-                      {/* Glowing rings */}
-                      <div className="absolute inset-0 border-4 border-dashed border-red-400/30 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
-                      <div className="absolute -inset-4 border-2 border-red-500/20 rounded-full"></div>
-                    </div>
-                  </motion.div>
-
-                  {/* Title and Badge */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="mb-6"
-                  >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-6">
-                      <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-                      <span className="text-red-300 text-xs font-semibold uppercase tracking-wider" style={{ fontFamily: 'var(--font-bebas)' }}>
-                        Premium DeFi Platform
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-500/10 border border-violet-500/30 rounded-full">
+                      <Sparkles className="text-violet-400" size={16} />
+                      <span className="text-violet-300 text-xs font-semibold tracking-wider" style={{ fontFamily: 'var(--font-orbitron)' }}>
+                        Next-Gen DeFi Interface
                       </span>
                     </div>
 
                     <h1 
-                      className="text-7xl md:text-9xl font-normal text-white mb-6 leading-none tracking-tight"
-                      style={{ fontFamily: 'var(--font-bebas)', letterSpacing: '0.05em' }}
+                      className="text-6xl md:text-7xl font-bold text-white leading-tight"
+                      style={{ fontFamily: 'var(--font-orbitron)' }}
                     >
-                      <span className="bg-gradient-to-r from-red-400 via-rose-400 to-pink-400 bg-clip-text text-transparent">
-                        ECLIPSE
+                      <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                        NOVA
                       </span>
                     </h1>
                     
-                    <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-10 font-light">
-                      The ultimate platform for decentralized finance. Experience seamless staking, governance, and asset management.
+                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-lg">
+                      Illuminate the future of decentralized finance. A cutting-edge platform for staking, governance, and token management on Cosmos.
                     </p>
-                  </motion.div>
 
-                  {/* CTA Button */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 }}
-                    className="mb-12"
-                  >
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-700 hover:to-rose-700 text-white rounded-2xl transition-all duration-300 font-bold text-lg shadow-2xl glow-primary uppercase tracking-wider"
-                      style={{ fontFamily: 'var(--font-bebas)' }}
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 }}
+                      className="flex flex-wrap gap-4"
                     >
-                      <AlertCircle size={22} />
-                      <span>Connect Wallet</span>
-                      <ArrowRight size={20} />
-                    </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary"
+                        style={{ fontFamily: 'var(--font-orbitron)' }}
+                      >
+                        <AlertCircle size={20} />
+                        <span>Connect Wallet</span>
+                        <ArrowRight size={18} />
+                      </motion.button>
+                      
+                      <div className="flex items-center gap-6 text-sm">
+                        <div className="flex items-center gap-2 text-violet-300">
+                          <Zap className="text-violet-400" size={18} />
+                          <span>Fast</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-purple-300">
+                          <Shield className="text-purple-400" size={18} />
+                          <span>Secure</span>
+                        </div>
+                      </div>
+                    </motion.div>
                   </motion.div>
 
-                  {/* Feature Pills */}
+                  {/* Right Side - Visual */}
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                    className="flex flex-wrap items-center justify-center gap-4 text-sm"
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="relative"
                   >
-                    <div className="flex items-center gap-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full">
-                      <Zap className="text-red-400" size={16} />
-                      <span className="text-red-300 font-medium">Ultra Fast</span>
-                    </div>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-rose-500/10 border border-rose-500/30 rounded-full">
-                      <Shield className="text-rose-400" size={16} />
-                      <span className="text-rose-300 font-medium">Secure</span>
-                    </div>
-                    <div className="flex items-center gap-2 px-4 py-2 bg-pink-500/10 border border-pink-500/30 rounded-full">
-                      <TrendingUp className="text-pink-400" size={16} />
-                      <span className="text-pink-300 font-medium">Profitable</span>
+                    <div className="relative h-[500px] bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl border-2 border-violet-500/30 p-12 flex items-center justify-center overflow-hidden">
+                      {/* Geometric shapes background */}
+                      <div className="absolute inset-0 opacity-10">
+                        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-violet-400/30 rotate-45"></div>
+                        <div className="absolute bottom-10 right-10 w-24 h-24 border-2 border-purple-400/30 rotate-12"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border-2 border-indigo-400/30 rounded-full"></div>
+                      </div>
+                      
+                      {/* Central P logo */}
+                      <div className="relative z-10">
+                        <motion.div
+                          animate={{ 
+                            rotate: [0, 360],
+                            scale: [1, 1.05, 1]
+                          }}
+                          transition={{ 
+                            rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                            scale: { duration: 3, repeat: Infinity }
+                          }}
+                          className="w-48 h-48 bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-2xl glow-primary border-4 border-violet-400/50 relative"
+                        >
+                          <span className="text-white font-bold text-8xl" style={{ fontFamily: 'var(--font-orbitron)' }}>P</span>
+                          {/* Corner geometric shapes */}
+                          <div className="absolute -top-2 -right-2 w-6 h-6 bg-violet-400 rotate-45"></div>
+                          <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-purple-400 rotate-45"></div>
+                          <div className="absolute -top-2 -left-2 w-5 h-5 bg-indigo-400 rounded-full"></div>
+                          <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-violet-400 rounded-full"></div>
+                        </motion.div>
+                      </div>
+
+                      {/* Floating particles */}
+                      <div className="absolute top-20 right-20 w-3 h-3 bg-violet-400 rounded-full animate-pulse"></div>
+                      <div className="absolute bottom-20 left-20 w-2 h-2 bg-purple-400 rounded-full animate-pulse delay-300"></div>
+                      <div className="absolute top-1/3 right-10 w-4 h-4 bg-indigo-400 rounded-full animate-pulse delay-500"></div>
                     </div>
                   </motion.div>
                 </div>
 
-                {/* Feature Cards - Horizontal Layout */}
+                {/* Feature Grid - 3 Columns */}
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="grid md:grid-cols-4 gap-4 mb-16"
+                  transition={{ delay: 0.5 }}
+                  className="grid md:grid-cols-3 gap-6 mb-16"
                 >
                   {[
-                    { icon: Shield, title: "Security", desc: "Enterprise-grade", gradient: "from-red-500 to-red-600" },
-                    { icon: TrendingUp, title: "Staking", desc: "Maximize returns", gradient: "from-rose-500 to-rose-600" },
-                    { icon: Globe, title: "Governance", desc: "Shape the future", gradient: "from-pink-500 to-pink-600" },
-                    { icon: Zap, title: "Speed", desc: "Lightning fast", gradient: "from-red-400 to-rose-500" },
+                    { icon: Shield, title: "Advanced Security", desc: "Multi-layer protection", gradient: "from-violet-500 to-violet-600", delay: 0.6 },
+                    { icon: TrendingUp, title: "Smart Staking", desc: "Optimized yields", gradient: "from-purple-500 to-purple-600", delay: 0.7 },
+                    { icon: Globe, title: "Cross-Chain", desc: "IBC compatible", gradient: "from-indigo-500 to-indigo-600", delay: 0.8 },
                   ].map((feature, i) => (
                     <motion.div
                       key={i}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.7 + i * 0.1 }}
-                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-6 border-2 border-red-500/20 hover:border-red-400/40 transition-all duration-300 hover:scale-105 group text-center"
+                      transition={{ delay: feature.delay }}
+                      className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-8 border-2 border-violet-500/20 hover:border-violet-400/40 transition-all duration-300 hover:scale-105 group"
                     >
-                      <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg glow-primary group-hover:rotate-12 transition-transform duration-300`}>
-                        <feature.icon className="text-white" size={24} />
+                      <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 shadow-xl glow-primary group-hover:rotate-6 transition-transform duration-300`}>
+                        <feature.icon className="text-white" size={28} />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-bebas)' }}>
+                      <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: 'var(--font-orbitron)' }}>
                         {feature.title}
                       </h3>
-                      <p className="text-sm text-gray-400">
+                      <p className="text-gray-400 leading-relaxed">
                         {feature.desc}
                       </p>
                     </motion.div>
                   ))}
                 </motion.div>
 
-                {/* Visual Showcase */}
+                {/* Stats Bar */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}
-                  className="relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9 }}
+                  className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-2xl p-8 border-2 border-violet-500/20 backdrop-blur-md"
                 >
-                  <div className="relative h-[400px] bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl border-2 border-red-500/30 p-12 flex items-center justify-center overflow-hidden">
-                    {/* Diagonal stripes */}
-                    <div className="absolute inset-0 opacity-10">
-                      <div className="absolute inset-0" style={{
-                        backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(239,68,68,0.1) 20px, rgba(239,68,68,0.1) 40px)`,
-                      }}></div>
-                    </div>
-                    
-                    {/* Central E logo with effects */}
-                    <div className="relative z-10">
-                      <motion.div
-                        animate={{ 
-                          boxShadow: [
-                            '0 0 40px rgba(239,68,68,0.5)',
-                            '0 0 60px rgba(239,68,68,0.7)',
-                            '0 0 40px rgba(239,68,68,0.5)'
-                          ]
-                        }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-56 h-56 bg-gradient-to-br from-red-600 via-rose-600 to-pink-600 rounded-full flex items-center justify-center shadow-2xl glow-primary border-4 border-red-400/50 relative"
-                      >
-                        <span className="text-white font-normal text-9xl" style={{ fontFamily: 'var(--font-bebas)' }}>E</span>
-                        {/* Corner dots */}
-                        <div className="absolute -top-3 -right-3 w-6 h-6 bg-red-400 rounded-full animate-pulse"></div>
-                        <div className="absolute -bottom-3 -left-3 w-4 h-4 bg-rose-400 rounded-full animate-pulse delay-300"></div>
-                        <div className="absolute -top-3 -left-3 w-5 h-5 bg-pink-400 rounded-full animate-pulse delay-500"></div>
-                        <div className="absolute -bottom-3 -right-3 w-4 h-4 bg-red-400 rounded-full animate-pulse delay-700"></div>
-                      </motion.div>
-                    </div>
-
-                    {/* Corner accents */}
-                    <div className="absolute top-6 left-6 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
-                    <div className="absolute top-6 right-6 w-2 h-2 bg-rose-400 rounded-full animate-pulse delay-300"></div>
-                    <div className="absolute bottom-6 left-6 w-4 h-4 bg-pink-400 rounded-full animate-pulse delay-500"></div>
-                    <div className="absolute bottom-6 right-6 w-2 h-2 bg-red-400 rounded-full animate-pulse delay-700"></div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    {[
+                      { label: "Network", value: "Lumera", color: "violet" },
+                      { label: "Chain ID", value: "Mainnet-1", color: "purple" },
+                      { label: "Consensus", value: "CometBFT", color: "indigo" },
+                      { label: "Status", value: "Active", color: "violet" },
+                    ].map((stat, i) => (
+                      <div key={i} className="text-center">
+                        <p className={`text-${stat.color}-400 text-sm font-semibold mb-2`} style={{ fontFamily: 'var(--font-orbitron)' }}>
+                          {stat.label}
+                        </p>
+                        <p className="text-white text-lg font-bold" style={{ fontFamily: 'var(--font-orbitron)' }}>
+                          {stat.value}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </motion.div>
               </div>
@@ -235,11 +234,11 @@ export default function Home() {
             </div>
 
             {/* GETTING STARTED */}
-            <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-10 border-2 border-red-500/20 shadow-2xl backdrop-blur-sm relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-rose-500/5 rounded-full blur-3xl"></div>
+            <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-10 border-2 border-violet-500/20 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-normal text-white mb-8 tracking-tight uppercase" style={{ fontFamily: 'var(--font-bebas)' }}>
+                <h3 className="text-3xl font-bold text-white mb-8 tracking-tight" style={{ fontFamily: 'var(--font-orbitron)' }}>
                   Getting Started
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -251,13 +250,13 @@ export default function Home() {
                       transition={{ delay: 0.1 * i }}
                       className="flex items-start gap-4 group p-4 rounded-xl hover:bg-white/5 transition-colors"
                     >
-                      <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500 to-rose-500 text-white flex items-center justify-center text-base font-bold shadow-lg glow-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0" style={{ fontFamily: 'var(--font-bebas)' }}>
+                      <span className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 text-white flex items-center justify-center text-base font-bold shadow-lg glow-primary group-hover:scale-110 transition-transform duration-300 flex-shrink-0" style={{ fontFamily: 'var(--font-orbitron)' }}>
                         {i + 1}
                       </span>
                       <span className="leading-relaxed text-base font-normal pt-3 text-gray-300 group-hover:text-white transition-colors">
                         {i === 0 ? (
                           <>
-                            Install <a href="https://www.keplr.app/" target="_blank" rel="noopener noreferrer" className="underline text-red-400 font-semibold hover:text-rose-400 transition-colors">Keplr Wallet</a> browser extension
+                            Install <a href="https://www.keplr.app/" target="_blank" rel="noopener noreferrer" className="underline text-violet-400 font-semibold hover:text-purple-400 transition-colors">Keplr Wallet</a> browser extension
                           </>
                         ) : step}
                       </span>

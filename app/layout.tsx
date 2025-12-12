@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Roboto, Geist_Mono } from "next/font/google";
+import { Orbitron, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "@/contexts/WalletContext";
 
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas",
+const orbitron = Orbitron({
+  variable: "--font-orbitron",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const geistMono = Geist_Mono({
@@ -23,9 +23,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eclipse - Premium DeFi Platform",
+  title: "Nova - Next-Gen DeFi Interface",
   description:
-    "A revolutionary decentralized application for staking, governance, and token management on the Cosmos ecosystem. Experience the quantum leap in DeFi with Quantum.",
+    "A next-generation decentralized application for staking, governance, and token management on the Cosmos ecosystem. Experience the future of DeFi with Nova.",
 };
 
 export default function RootLayout({
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bebasNeue.variable} ${roboto.variable} ${geistMono.variable} antialiased`}
+        className={`${orbitron.variable} ${inter.variable} ${geistMono.variable} antialiased`}
       >
         <WalletProvider>{children}</WalletProvider>
       </body>

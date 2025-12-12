@@ -55,10 +55,10 @@ export default function QuickActions({
   ];
 
   const actionColors = [
-    { gradient: "from-red-500 to-red-600", bg: "bg-red-950/40", border: "border-red-400/50" },
-    { gradient: "from-rose-500 to-rose-600", bg: "bg-rose-950/40", border: "border-rose-400/50" },
-    { gradient: "from-pink-500 to-pink-600", bg: "bg-pink-950/40", border: "border-pink-400/50" },
-    { gradient: "from-red-400 to-rose-500", bg: "bg-red-950/40", border: "border-red-400/50" },
+    { gradient: "from-violet-500 to-violet-600", bg: "bg-violet-950/40", border: "border-violet-400/50" },
+    { gradient: "from-purple-500 to-purple-600", bg: "bg-purple-950/40", border: "border-purple-400/50" },
+    { gradient: "from-indigo-500 to-indigo-600", bg: "bg-indigo-950/40", border: "border-indigo-400/50" },
+    { gradient: "from-violet-400 to-purple-500", bg: "bg-violet-950/40", border: "border-violet-400/50" },
   ];
 
   return (
@@ -74,7 +74,7 @@ export default function QuickActions({
           >
             <action.icon className="text-white" size={28} />
           </div>
-          <h3 className="font-normal text-white mb-2 text-xl tracking-tight uppercase" style={{ fontFamily: 'var(--font-bebas)' }}>
+          <h3 className="font-bold text-white mb-2 text-xl tracking-tight" style={{ fontFamily: 'var(--font-orbitron)' }}>
             {action.label}
           </h3>
           <p className="text-sm text-gray-300 font-medium">
