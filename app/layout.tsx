@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Quantum - Revolutionary DeFi Experience",
+  title: "Eclipse - Premium DeFi Platform",
   description:
     "A revolutionary decentralized application for staking, governance, and token management on the Cosmos ecosystem. Experience the quantum leap in DeFi with Quantum.",
 };
