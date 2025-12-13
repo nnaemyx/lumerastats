@@ -2,22 +2,22 @@
 
 import { useWallet } from "@/contexts/WalletContext";
 import Header from "@/components/Header";
-import PortfolioDashboard from "@/components/PortfolioDashboard";
-import { AlertCircle, Wallet, ArrowRight } from "lucide-react";
+import TransactionHistoryViewer from "@/components/TransactionHistoryViewer";
+import { AlertCircle, FileText, Search, ArrowRight, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const { isConnected, error, connect, isLoading } = useWallet();
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] relative overflow-hidden">
+    <div className="min-h-screen bg-[#0d0d12] relative overflow-hidden">
       {/* Animated background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.15),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(96,165,250,0.10),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(20,184,166,0.08),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-to-br from-[#0d0d12] via-[#15151a] to-[#0d0d12] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.15),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(167,139,250,0.10),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(99,102,241,0.08),transparent_50%)] pointer-events-none" />
       {/* Animated mesh gradient */}
-      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(59,130,246,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
+      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(139,92,246,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
       
       <Header />
 
@@ -31,116 +31,118 @@ export default function Home() {
           >
             <AlertCircle className="text-red-400 shrink-0 mt-0.5" size={22} />
             <div>
-              <p className="font-semibold text-red-300">Connection Error</p>
+              <p className="font-semibold text-red-300" style={{ fontFamily: 'var(--font-poppins)' }}>Connection Error</p>
               <p className="text-sm text-red-400/80 mt-1">{error}</p>
             </div>
           </motion.div>
         )}
 
-        {!isConnected ? (
+        {/* Main Content - Always show Transaction History Viewer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="max-w-6xl mx-auto"
+        >
+          <TransactionHistoryViewer />
+        </motion.div>
+
+        {/* Info Section */}
+        {!isConnected && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl mx-auto mt-20"
+            transition={{ delay: 0.3 }}
+            className="max-w-4xl mx-auto mt-12"
           >
-            {/* Wallet Portfolio Dashboard Landing */}
-            <div className="bg-gradient-to-br from-[#111118] to-[#0f0f15] rounded-3xl p-12 border-2 border-blue-500/30 shadow-2xl backdrop-blur-md relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+            <div className="bg-gradient-to-br from-[#15151a] to-[#1e1e24] rounded-3xl p-8 border-2 border-violet-500/20 shadow-2xl backdrop-blur-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-violet-500/5 rounded-full blur-3xl"></div>
               
-              <div className="relative z-10 text-center space-y-8">
-                <div className="inline-flex items-center gap-3 px-6 py-3 bg-blue-500/10 border-2 border-blue-500/30 rounded-2xl">
-                  <Wallet className="text-blue-400" size={24} />
-                  <span className="text-blue-300 text-sm font-semibold tracking-wider" style={{ fontFamily: 'var(--font-titillium)' }}>
-                    Lumera Testnet Portfolio
-                  </span>
-                </div>
-
-                <div>
-                  <h1 
-                    className="text-5xl md:text-6xl font-bold text-white leading-tight mb-4"
-                    style={{ fontFamily: 'var(--font-titillium)' }}
-                  >
-                    <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                      Wallet Portfolio Dashboard
+              <div className="relative z-10">
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-violet-500/10 border-2 border-violet-500/30 rounded-2xl mb-6">
+                    <Zap className="text-violet-400" size={20} />
+                    <span className="text-violet-300 text-sm font-semibold tracking-wider" style={{ fontFamily: 'var(--font-poppins)' }}>
+                      Quick Start Guide
                     </span>
-                  </h1>
+                  </div>
                   
-                  <p className="text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
-                    Connect your wallet to view your tokens, balances, and transaction history on the Lumera Testnet ecosystem.
+                  <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-poppins)' }}>
+                    How to Use TxView
+                  </h2>
+                  <p className="text-gray-400 max-w-2xl mx-auto">
+                    View transaction history for any wallet address on the Lumera Testnet. Connect your wallet for quick access or enter any address manually.
                   </p>
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="flex flex-col items-center gap-6"
-                >
-                  <motion.button
-                    onClick={connect}
-                    disabled={isLoading}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                    style={{ fontFamily: 'var(--font-titillium)' }}
-                  >
-                    <Wallet size={20} />
-                    <span>{isLoading ? "Connecting..." : "Connect Wallet"}</span>
-                    <ArrowRight size={18} />
-                  </motion.button>
-                  
-                  <div className="grid grid-cols-3 gap-4 w-full max-w-md mt-4">
-                    {[
-                      { label: "Tokens", desc: "View all your tokens" },
-                      { label: "Balances", desc: "Check your balances" },
-                      { label: "Transactions", desc: "See transaction count" },
-                    ].map((feature, i) => (
-                      <div
-                        key={i}
-                        className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-4 text-center"
-                      >
-                        <p className="text-sm font-semibold text-blue-300 mb-1">{feature.label}</p>
-                        <p className="text-xs text-gray-400">{feature.desc}</p>
+                <div className="grid md:grid-cols-3 gap-6">
+                  {[
+                    { 
+                      icon: Search, 
+                      title: "Search Address", 
+                      desc: "Enter any wallet address to view its complete transaction history",
+                      bgColor: "bg-violet-500/5",
+                      borderColor: "border-violet-500/20",
+                      hoverBorder: "hover:border-violet-500/40",
+                      iconBg: "bg-violet-500/20",
+                      iconBorder: "border-violet-500/30",
+                      iconColor: "text-violet-400"
+                    },
+                    { 
+                      icon: FileText, 
+                      title: "View Transactions", 
+                      desc: "See all transactions with details including type, amount, and status",
+                      bgColor: "bg-purple-500/5",
+                      borderColor: "border-purple-500/20",
+                      hoverBorder: "hover:border-purple-500/40",
+                      iconBg: "bg-purple-500/20",
+                      iconBorder: "border-purple-500/30",
+                      iconColor: "text-purple-400"
+                    },
+                    { 
+                      icon: Zap, 
+                      title: "Quick Access", 
+                      desc: "Connect your wallet to instantly view your own transaction history",
+                      bgColor: "bg-fuchsia-500/5",
+                      borderColor: "border-fuchsia-500/20",
+                      hoverBorder: "hover:border-fuchsia-500/40",
+                      iconBg: "bg-fuchsia-500/20",
+                      iconBorder: "border-fuchsia-500/30",
+                      iconColor: "text-fuchsia-400"
+                    },
+                  ].map((feature, i) => (
+                    <div
+                      key={i}
+                      className={`${feature.bgColor} ${feature.borderColor} ${feature.hoverBorder} rounded-2xl p-6 text-center transition-all duration-300`}
+                    >
+                      <div className={`w-12 h-12 ${feature.iconBg} rounded-xl flex items-center justify-center mx-auto mb-4 border ${feature.iconBorder}`}>
+                        <feature.icon className={feature.iconColor} size={24} />
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                <div className="mt-8 pt-8 border-t border-blue-500/20">
-                  <p className="text-sm text-gray-400 mb-4">Getting Started:</p>
-                  <div className="flex flex-col gap-3 text-left max-w-md mx-auto">
-                    {[
-                      "Install Keplr Wallet browser extension",
-                      "Click 'Connect Wallet' button above",
-                      "Lumera Testnet will be added automatically",
-                      "View your portfolio dashboard"
-                    ].map((step, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <span className="w-6 h-6 rounded-lg bg-blue-500/20 border border-blue-500/40 text-blue-300 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">
-                          {i + 1}
-                        </span>
-                        <span className="text-sm text-gray-300 leading-relaxed">
-                          {i === 0 ? (
-                            <>
-                              Install <a href="https://www.keplr.app/" target="_blank" rel="noopener noreferrer" className="underline text-blue-400 font-semibold hover:text-cyan-400 transition-colors">Keplr Wallet</a> browser extension
-                            </>
-                          ) : step}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
+                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-poppins)' }}>
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-gray-400">{feature.desc}</p>
+                    </div>
+                  ))}
                 </div>
+
+                {!isConnected && (
+                  <div className="mt-8 text-center">
+                    <motion.button
+                      onClick={connect}
+                      disabled={isLoading}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ fontFamily: 'var(--font-poppins)' }}
+                    >
+                      <FileText size={20} />
+                      <span>{isLoading ? "Connecting..." : "Connect Wallet for Quick Access"}</span>
+                      <ArrowRight size={18} />
+                    </motion.button>
+                  </div>
+                )}
               </div>
             </div>
-          </motion.div>
-        ) : (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="max-w-6xl mx-auto"
-          >
-            <PortfolioDashboard />
           </motion.div>
         )}
       </main>

@@ -1,35 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
+  --background: #0d0d12;
   --foreground: #f8fafc;
-  --primary: #ec4899;
-  --primary-dark: #db2777;
-  --accent: #f472b6;
-  --accent-dark: #ec4899;
-  --secondary: #f9a8d4;
-  --secondary-dark: #f472b6;
-  --tertiary: #d946ef;
-  --tertiary-dark: #c026d3;
-  --surface: #111118;
-  --surface-elevated: #1a1a24;
-  --border: #1e1e2e;
-  --border-light: #2a2a3a;
+  --primary: #8b5cf6;
+  --primary-dark: #7c3aed;
+  --accent: #a78bfa;
+  --accent-dark: #8b5cf6;
+  --secondary: #c4b5fd;
+  --secondary-dark: #a78bfa;
+  --tertiary: #6366f1;
+  --tertiary-dark: #4f46e5;
+  --surface: #15151a;
+  --surface-elevated: #1e1e24;
+  --border: #2a2a32;
+  --border-light: #353540;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-open-sans);
-  --font-heading: var(--font-titillium);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0f 0%, #0f0f1a 50%, #0a0a0f 100%);
+  background: linear-gradient(135deg, #0d0d12 0%, #15151a 50%, #0d0d12 100%);
   background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-open-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,9 +60,9 @@ body {
 
 /* Glow effects */
 .glow-primary {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.7), 0 0 60px rgba(59, 130, 246, 0.5), 0 0 90px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.7), 0 0 60px rgba(139, 92, 246, 0.5), 0 0 90px rgba(139, 92, 246, 0.3);
 }
 
 .glow-accent {
-  box-shadow: 0 0 30px rgba(96, 165, 250, 0.7), 0 0 60px rgba(96, 165, 250, 0.5), 0 0 90px rgba(96, 165, 250, 0.3);
+  box-shadow: 0 0 30px rgba(167, 139, 250, 0.7), 0 0 60px rgba(167, 139, 250, 0.5), 0 0 90px rgba(167, 139, 250, 0.3);
 }
