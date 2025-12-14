@@ -1,31 +1,33 @@
 import type { Metadata } from "next";
-import {  Inter, JetBrains_Mono, Poppins } from "next/font/google";
+import { Montserrat, Roboto, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "@/contexts/WalletContext";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600", "700", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "700", "900"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Lumera Transaction History Viewer",
+  title: "RiskGuard - Wallet Risk Analyzer",
   description:
-    "Lumera Transaction History Viewer is a platform for viewing transaction history for any wallet address on the Lumera ecosystem. Experience seamless DeFi.",
+    "Analyze wallet safety and risk levels based on transaction patterns. Get instant risk grades and security insights for any wallet address on Lumera Testnet.",
 };
 
 export default function RootLayout({
@@ -36,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${montserrat.variable} ${roboto.variable} ${spaceMono.variable} antialiased`}
       >
         <WalletProvider>{children}</WalletProvider>
       </body>
