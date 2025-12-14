@@ -1,33 +1,33 @@
 import type { Metadata } from "next";
-import { Montserrat, Roboto, Space_Mono } from "next/font/google";
+import { Raleway, Nunito, Fira_Code } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "@/contexts/WalletContext";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const spaceMono = Space_Mono({
-  variable: "--font-space-mono",
+const firaCode = Fira_Code({
+  variable: "--font-fira-code",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "RiskGuard - Wallet Risk Analyzer",
+  title: "WalletWatch - Multi-Wallet Watchlist",
   description:
-    "Analyze wallet safety and risk levels based on transaction patterns. Get instant risk grades and security insights for any wallet address on Lumera Testnet.",
+    "Track multiple wallet addresses in one dashboard. Monitor balances, transactions, and activity across all your watched wallets on Lumera Testnet.",
 };
 
 export default function RootLayout({
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} ${roboto.variable} ${spaceMono.variable} antialiased`}
+        className={`${raleway.variable} ${nunito.variable} ${firaCode.variable} antialiased`}
       >
         <WalletProvider>{children}</WalletProvider>
       </body>

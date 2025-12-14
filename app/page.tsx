@@ -2,22 +2,22 @@
 
 import { useWallet } from "@/contexts/WalletContext";
 import Header from "@/components/Header";
-import WalletRiskAnalyzer from "@/components/WalletRiskAnalyzer";
-import { AlertCircle, Shield, AlertTriangle, CheckCircle, Lock, ArrowRight } from "lucide-react";
+import MultiWalletWatchlist from "@/components/MultiWalletWatchlist";
+import { AlertCircle, Eye, Plus, RefreshCw, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const { isConnected, error, connect, isLoading } = useWallet();
 
   return (
-    <div className="min-h-screen bg-[#0f0f14] relative overflow-hidden">
+    <div className="min-h-screen bg-[#0a0f1a] relative overflow-hidden">
       {/* Animated background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#0f0f14] via-[#1a1a1f] to-[#0f0f14] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,158,11,0.15),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(251,191,36,0.10),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(239,68,68,0.08),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-to-br from-[#0a0f1a] via-[#111827] to-[#0a0f1a] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.15),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(45,212,191,0.10),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(6,182,212,0.08),transparent_50%)] pointer-events-none" />
       {/* Animated mesh gradient */}
-      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(245,158,11,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
+      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(20,184,166,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
       
       <Header />
 
@@ -31,19 +31,19 @@ export default function Home() {
           >
             <AlertCircle className="text-red-400 shrink-0 mt-0.5" size={22} />
             <div>
-              <p className="font-semibold text-red-300" style={{ fontFamily: 'var(--font-montserrat)' }}>Connection Error</p>
+              <p className="font-semibold text-red-300" style={{ fontFamily: 'var(--font-raleway)' }}>Connection Error</p>
               <p className="text-sm text-red-400/80 mt-1">{error}</p>
             </div>
           </motion.div>
         )}
 
-        {/* Main Content - Always show Risk Analyzer */}
+        {/* Main Content - Always show Multi-Wallet Watchlist */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="max-w-6xl mx-auto"
+          className="max-w-7xl mx-auto"
         >
-          <WalletRiskAnalyzer />
+          <MultiWalletWatchlist />
         </motion.div>
 
         {/* Info Section */}
@@ -54,60 +54,60 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="max-w-4xl mx-auto mt-12"
           >
-            <div className="bg-gradient-to-br from-[#1a1a1f] to-[#242429] rounded-3xl p-8 border-2 border-amber-500/20 shadow-2xl backdrop-blur-md relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
+            <div className="bg-gradient-to-br from-[#111827] to-[#1f2937] rounded-3xl p-8 border-2 border-teal-500/20 shadow-2xl backdrop-blur-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl"></div>
               
               <div className="relative z-10">
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-amber-500/10 border-2 border-amber-500/30 rounded-2xl mb-6">
-                    <Shield className="text-amber-400" size={20} />
-                    <span className="text-amber-300 text-sm font-semibold tracking-wider" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-teal-500/10 border-2 border-teal-500/30 rounded-2xl mb-6">
+                    <Eye className="text-teal-400" size={20} />
+                    <span className="text-teal-300 text-sm font-semibold tracking-wider" style={{ fontFamily: 'var(--font-raleway)' }}>
                       How It Works
                     </span>
                   </div>
                   
-                  <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                    Wallet Risk Analysis
+                  <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-raleway)' }}>
+                    Multi-Wallet Watchlist
                   </h2>
                   <p className="text-gray-400 max-w-2xl mx-auto">
-                    Analyze wallet safety based on transaction patterns. Get instant risk grades (A-F) and security insights for any wallet address on Lumera Testnet.
+                    Track multiple wallet addresses in one dashboard. Monitor balances, transactions, and activity across all your watched wallets on Lumera Testnet.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
                   {[
                     { 
-                      icon: Shield, 
-                      title: "Risk Scoring", 
-                      desc: "Get a comprehensive risk grade from A (Very Safe) to F (Very High Risk) based on multiple factors",
-                      bgColor: "bg-amber-500/5",
-                      borderColor: "border-amber-500/20",
-                      hoverBorder: "hover:border-amber-500/40",
-                      iconBg: "bg-amber-500/20",
-                      iconBorder: "border-amber-500/30",
-                      iconColor: "text-amber-400"
+                      icon: Plus, 
+                      title: "Add Wallets", 
+                      desc: "Add multiple wallet addresses to your watchlist. Give them custom names for easy identification",
+                      bgColor: "bg-teal-500/5",
+                      borderColor: "border-teal-500/20",
+                      hoverBorder: "hover:border-teal-500/40",
+                      iconBg: "bg-teal-500/20",
+                      iconBorder: "border-teal-500/30",
+                      iconColor: "text-teal-400"
                     },
                     { 
-                      icon: AlertTriangle, 
-                      title: "Pattern Analysis", 
-                      desc: "Detect suspicious patterns including unusual frequency, failed transactions, and account behavior",
-                      bgColor: "bg-orange-500/5",
-                      borderColor: "border-orange-500/20",
-                      hoverBorder: "hover:border-orange-500/40",
-                      iconBg: "bg-orange-500/20",
-                      iconBorder: "border-orange-500/30",
-                      iconColor: "text-orange-400"
+                      icon: Eye, 
+                      title: "Monitor Activity", 
+                      desc: "View balances, transaction counts, and total values for all watched wallets in one place",
+                      bgColor: "bg-cyan-500/5",
+                      borderColor: "border-cyan-500/20",
+                      hoverBorder: "hover:border-cyan-500/40",
+                      iconBg: "bg-cyan-500/20",
+                      iconBorder: "border-cyan-500/30",
+                      iconColor: "text-cyan-400"
                     },
                     { 
-                      icon: CheckCircle, 
-                      title: "Security Insights", 
-                      desc: "Receive personalized recommendations to improve wallet security and reduce risk exposure",
-                      bgColor: "bg-emerald-500/5",
-                      borderColor: "border-emerald-500/20",
-                      hoverBorder: "hover:border-emerald-500/40",
-                      iconBg: "bg-emerald-500/20",
-                      iconBorder: "border-emerald-500/30",
-                      iconColor: "text-emerald-400"
+                      icon: RefreshCw, 
+                      title: "Real-Time Updates", 
+                      desc: "Refresh individual wallets or all wallets at once to get the latest data and balances",
+                      bgColor: "bg-blue-500/5",
+                      borderColor: "border-blue-500/20",
+                      hoverBorder: "hover:border-blue-500/40",
+                      iconBg: "bg-blue-500/20",
+                      iconBorder: "border-blue-500/30",
+                      iconColor: "text-blue-400"
                     },
                   ].map((feature, i) => (
                     <div
@@ -117,7 +117,7 @@ export default function Home() {
                       <div className={`w-12 h-12 ${feature.iconBg} rounded-xl flex items-center justify-center mx-auto mb-4 border ${feature.iconBorder}`}>
                         <feature.icon className={feature.iconColor} size={24} />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-raleway)' }}>
                         {feature.title}
                       </h3>
                       <p className="text-sm text-gray-400">{feature.desc}</p>
@@ -132,11 +132,11 @@ export default function Home() {
                       disabled={isLoading}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{ fontFamily: 'var(--font-montserrat)' }}
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ fontFamily: 'var(--font-raleway)' }}
                     >
-                      <Lock size={20} />
-                      <span>{isLoading ? "Connecting..." : "Connect Wallet for Quick Analysis"}</span>
+                      <Eye size={20} />
+                      <span>{isLoading ? "Connecting..." : "Connect Wallet to Auto-Add"}</span>
                       <ArrowRight size={18} />
                     </motion.button>
                   </div>
