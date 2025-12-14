@@ -414,3 +414,162 @@ const parseTransaction = (tx: any, userAddress: string): TransactionDetail => {
   };
 };
 
+export interface BlockInfo {
+  height: string;
+  hash: string;
+  time: string;
+  numTxs: number;
+  proposer?: string;
+  transactions?: TransactionDetail[];
+}
+
+export const getLatestBlocks = async (limit: number = 20): Promise<BlockInfo[]> => {
+  try {
+    const client = await createQueryClient();
+    const latestHeight = await client.getHeight();
+    
+    const blocks: BlockInfo[] = [];
+    const startHeight = Math.max(1, latestHeight - limit + 1);
+    
+    for (let height = latestHeight; height >= startHeight && height > 0; height--) {
+      try {
+        const block = await client.getBlock(height);
+        if (block) {
+          blocks.push({
+            height: height.toString(),
+            hash: block.id || "",
+            time: block.header.time ? new Date(block.header.time).toISOString() : new Date().toISOString(),
+            numTxs: block.txs.length,
+            proposer: undefined, // Proposer address not available in BlockHeader type
+            transactions: block.txs.map((tx, idx) => {
+              // Try to parse transaction
+              try {
+                const txHash = Buffer.from(tx).toString('hex').slice(0, 64);
+                return {
+                  hash: txHash,
+                  height: height.toString(),
+                  type: "Unknown",
+                  timestamp: block.header.time ? new Date(block.header.time).toISOString() : new Date().toISOString(),
+                  status: "success" as const,
+                };
+              } catch {
+                return {
+                  hash: `tx-${height}-${idx}`,
+                  height: height.toString(),
+                  type: "Unknown",
+                  timestamp: block.header.time ? new Date(block.header.time).toISOString() : new Date().toISOString(),
+                  status: "success" as const,
+                };
+              }
+            }),
+          });
+        }
+      } catch (err) {
+        console.error(`Error fetching block ${height}:`, err);
+        // Continue with next block
+      }
+    }
+    
+    return blocks;
+  } catch (error: any) {
+    console.error("Error fetching latest blocks:", error);
+    // Try REST API as fallback
+    try {
+      const response = await fetch(`${LUMERA_CONFIG.rest}/cosmos/base/tendermint/v1beta1/blocks/latest`);
+      if (response.ok) {
+        const data = await response.json();
+        const block = data.block;
+        return [{
+          height: block.header.height || "0",
+          hash: block.header.last_commit_hash || "",
+          time: block.header.time || new Date().toISOString(),
+          numTxs: block.data?.txs?.length || 0,
+          proposer: block.header.proposer_address,
+        }];
+      }
+    } catch (restError) {
+      console.error("REST API fallback also failed:", restError);
+    }
+    return [];
+  }
+};
+
+export const getBlockByHeight = async (height: number): Promise<BlockInfo | null> => {
+  try {
+    const client = await createQueryClient();
+    const block = await client.getBlock(height);
+    
+    if (!block) {
+      return null;
+    }
+    
+    return {
+      height: height.toString(),
+      hash: block.id || "",
+      time: block.header.time ? new Date(block.header.time).toISOString() : new Date().toISOString(),
+      numTxs: block.txs.length,
+      proposer: undefined, // Proposer address not available in BlockHeader type
+      transactions: block.txs.map((tx, idx) => {
+        try {
+          const txHash = Buffer.from(tx).toString('hex').slice(0, 64);
+          return {
+            hash: txHash,
+            height: height.toString(),
+            type: "Unknown",
+            timestamp: block.header.time ? new Date(block.header.time).toISOString() : new Date().toISOString(),
+            status: "success" as const,
+          };
+        } catch {
+          return {
+            hash: `tx-${height}-${idx}`,
+            height: height.toString(),
+            type: "Unknown",
+            timestamp: block.header.time ? new Date(block.header.time).toISOString() : new Date().toISOString(),
+            status: "success" as const,
+          };
+        }
+      }),
+    };
+  } catch (error: any) {
+    console.error(`Error fetching block ${height}:`, error);
+    // Try REST API as fallback
+    try {
+      const response = await fetch(`${LUMERA_CONFIG.rest}/cosmos/base/tendermint/v1beta1/blocks/${height}`);
+      if (response.ok) {
+        const data = await response.json();
+        const block = data.block;
+        return {
+          height: block.header.height || height.toString(),
+          hash: block.header.last_commit_hash || "",
+          time: block.header.time || new Date().toISOString(),
+          numTxs: block.data?.txs?.length || 0,
+          proposer: block.header.proposer_address,
+        };
+      }
+    } catch (restError) {
+      console.error("REST API fallback also failed:", restError);
+    }
+    return null;
+  }
+};
+
+export const getLatestBlockHeight = async (): Promise<number> => {
+  try {
+    const client = await createQueryClient();
+    return await client.getHeight();
+  } catch (error: any) {
+    console.error("Error fetching latest block height:", error);
+    // Try REST API as fallback
+    try {
+      const response = await fetch(`${LUMERA_CONFIG.rest}/cosmos/base/tendermint/v1beta1/blocks/latest`);
+      if (response.ok) {
+        const data = await response.json();
+        return parseInt(data.block.header.height || "0");
+      }
+    } catch (restError) {
+      console.error("REST API fallback also failed:", restError);
+    }
+    return 0;
+  }
+};
+

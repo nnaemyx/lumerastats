@@ -2,22 +2,22 @@
 
 import { useWallet } from "@/contexts/WalletContext";
 import Header from "@/components/Header";
-import WalletNotesApp from "@/components/WalletNotesApp";
-import { AlertCircle, StickyNote, FileText, Tag, Lock, ArrowRight } from "lucide-react";
+import BlockExplorer from "@/components/BlockExplorer";
+import { AlertCircle, Blocks, Search, FileText, TrendingUp, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
   const { isConnected, error, connect, isLoading } = useWallet();
 
   return (
-    <div className="min-h-screen bg-[#1a0f0f] relative overflow-hidden">
+    <div className="min-h-screen bg-[#0a0a14] relative overflow-hidden">
       {/* Animated background gradient */}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#1a0f0f] via-[#2a1f1f] to-[#1a0f0f] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(245,158,11,0.15),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(251,191,36,0.10),transparent_50%)] pointer-events-none" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(249,115,22,0.08),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-gradient-to-br from-[#0a0a14] via-[#1a1a2e] to-[#0a0a14] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.15),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(167,139,250,0.10),transparent_50%)] pointer-events-none" />
+      <div className="fixed inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(99,102,241,0.08),transparent_50%)] pointer-events-none" />
       {/* Animated mesh gradient */}
-      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(245,158,11,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
+      <div className="fixed inset-0 bg-[linear-gradient(45deg,transparent_30%,rgba(139,92,246,0.06)_50%,transparent_70%)] pointer-events-none animate-pulse"></div>
       
       <Header />
 
@@ -31,19 +31,19 @@ export default function Home() {
           >
             <AlertCircle className="text-red-400 shrink-0 mt-0.5" size={22} />
             <div>
-              <p className="font-semibold text-red-300" style={{ fontFamily: 'var(--font-poppins)' }}>Connection Error</p>
+              <p className="font-semibold text-red-300" style={{ fontFamily: 'var(--font-rajdhani)' }}>Connection Error</p>
               <p className="text-sm text-red-400/80 mt-1">{error}</p>
             </div>
           </motion.div>
         )}
 
-        {/* Main Content - Always show Wallet Notes App */}
+        {/* Main Content - Always show Block Explorer */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="max-w-7xl mx-auto"
         >
-          <WalletNotesApp />
+          <BlockExplorer />
         </motion.div>
 
         {/* Info Section */}
@@ -54,60 +54,60 @@ export default function Home() {
             transition={{ delay: 0.3 }}
             className="max-w-4xl mx-auto mt-12"
           >
-            <div className="bg-gradient-to-br from-[#2a1f1f] to-[#3a2f2f] rounded-3xl p-8 border-2 border-amber-500/20 shadow-2xl backdrop-blur-md relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl"></div>
+            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#2a2a3e] rounded-3xl p-8 border-2 border-purple-500/20 shadow-2xl backdrop-blur-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl"></div>
               
               <div className="relative z-10">
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-amber-500/10 border-2 border-amber-500/30 rounded-2xl mb-6">
-                    <StickyNote className="text-amber-400" size={20} />
-                    <span className="text-amber-300 text-sm font-semibold tracking-wider" style={{ fontFamily: 'var(--font-poppins)' }}>
+                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-purple-500/10 border-2 border-purple-500/30 rounded-2xl mb-6">
+                    <Blocks className="text-purple-400" size={20} />
+                    <span className="text-purple-300 text-sm font-semibold tracking-wider" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                       How It Works
                     </span>
                   </div>
                   
-                  <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-poppins)' }}>
-                    Personal Wallet Notes
+                  <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-rajdhani)' }}>
+                    Mini Block Explorer
                   </h2>
                   <p className="text-gray-300 max-w-2xl mx-auto">
-                    Save personal notes tied to wallet addresses. Organize your thoughts, reminders, and information for each wallet address. All notes are stored locally in your browser.
+                    Explore the Lumera Testnet blockchain in real-time. View latest blocks, block details, and transactions. Search by block height to dive deep into the blockchain.
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6">
                   {[
                     { 
+                      icon: Blocks, 
+                      title: "Latest Blocks", 
+                      desc: "View the most recent blocks on the blockchain. See block height, hash, timestamp, and transaction count",
+                      bgColor: "bg-purple-500/5",
+                      borderColor: "border-purple-500/20",
+                      hoverBorder: "hover:border-purple-500/40",
+                      iconBg: "bg-purple-500/20",
+                      iconBorder: "border-purple-500/30",
+                      iconColor: "text-purple-400"
+                    },
+                    { 
+                      icon: Search, 
+                      title: "Block Details", 
+                      desc: "Click on any block to see detailed information including hash, proposer, timestamp, and all transactions",
+                      bgColor: "bg-violet-500/5",
+                      borderColor: "border-violet-500/20",
+                      hoverBorder: "hover:border-violet-500/40",
+                      iconBg: "bg-violet-500/20",
+                      iconBorder: "border-violet-500/30",
+                      iconColor: "text-violet-400"
+                    },
+                    { 
                       icon: FileText, 
-                      title: "Save Notes", 
-                      desc: "Create and save personal notes for any wallet address. Add titles, content, and tags to organize your information",
-                      bgColor: "bg-amber-500/5",
-                      borderColor: "border-amber-500/20",
-                      hoverBorder: "hover:border-amber-500/40",
-                      iconBg: "bg-amber-500/20",
-                      iconBorder: "border-amber-500/30",
-                      iconColor: "text-amber-400"
-                    },
-                    { 
-                      icon: Tag, 
-                      title: "Organize with Tags", 
-                      desc: "Use tags to categorize and filter your notes. Quickly find notes by searching or filtering by tags",
-                      bgColor: "bg-orange-500/5",
-                      borderColor: "border-orange-500/20",
-                      hoverBorder: "hover:border-orange-500/40",
-                      iconBg: "bg-orange-500/20",
-                      iconBorder: "border-orange-500/30",
-                      iconColor: "text-orange-400"
-                    },
-                    { 
-                      icon: Lock, 
-                      title: "Local Storage", 
-                      desc: "All notes are stored locally in your browser. Your data stays private and never leaves your device",
-                      bgColor: "bg-yellow-500/5",
-                      borderColor: "border-yellow-500/20",
-                      hoverBorder: "hover:border-yellow-500/40",
-                      iconBg: "bg-yellow-500/20",
-                      iconBorder: "border-yellow-500/30",
-                      iconColor: "text-yellow-400"
+                      title: "Transaction View", 
+                      desc: "Explore all transactions within a block. See transaction hashes, types, status, and timestamps",
+                      bgColor: "bg-indigo-500/5",
+                      borderColor: "border-indigo-500/20",
+                      hoverBorder: "hover:border-indigo-500/40",
+                      iconBg: "bg-indigo-500/20",
+                      iconBorder: "border-indigo-500/30",
+                      iconColor: "text-indigo-400"
                     },
                   ].map((feature, i) => (
                     <div
@@ -117,7 +117,7 @@ export default function Home() {
                       <div className={`w-12 h-12 ${feature.iconBg} rounded-xl flex items-center justify-center mx-auto mb-4 border ${feature.iconBorder}`}>
                         <feature.icon className={feature.iconColor} size={24} />
                       </div>
-                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-poppins)' }}>
+                      <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: 'var(--font-rajdhani)' }}>
                         {feature.title}
                       </h3>
                       <p className="text-sm text-gray-300">{feature.desc}</p>
@@ -132,11 +132,11 @@ export default function Home() {
                       disabled={isLoading}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{ fontFamily: 'var(--font-poppins)' }}
+                      className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white rounded-xl transition-all duration-300 font-semibold text-base shadow-2xl glow-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                      style={{ fontFamily: 'var(--font-rajdhani)' }}
                     >
-                      <StickyNote size={20} />
-                      <span>{isLoading ? "Connecting..." : "Connect Wallet to Get Started"}</span>
+                      <Blocks size={20} />
+                      <span>{isLoading ? "Connecting..." : "Connect Wallet to Explore"}</span>
                       <ArrowRight size={18} />
                     </motion.button>
                   </div>
