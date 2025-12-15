@@ -539,7 +539,7 @@ export const getLatestBlocks = async (limit: number = 20): Promise<BlockInfo[]> 
     const startHeight = Math.max(1, latestHeight - limit + 1);
     
     // Fetch blocks in parallel (with some batching to avoid overwhelming the API)
-    const fetchPromises: Promise<void>[] = [];
+    const fetchPromises: Promise<void[]>[] = [];
     const batchSize = 5;
     
     for (let height = latestHeight; height >= startHeight && height > 0; height -= batchSize) {
@@ -593,7 +593,7 @@ export const getLatestBlocks = async (limit: number = 20): Promise<BlockInfo[]> 
         })
       );
       
-      fetchPromises.push(batchPromise as Promise<void>);
+      fetchPromises.push(batchPromise);
     }
     
     await Promise.all(fetchPromises);
